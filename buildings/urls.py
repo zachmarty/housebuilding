@@ -1,6 +1,23 @@
 from django.urls import path
 from buildings.apps import BuildingsConfig
-from buildings.views import LadderCreateView, LadderDeleteView, LadderListView, LadderUpdateView, PillarCreateView, PillarDeleteView, PillarListView, PillarUpdateView, PlateCreateView, PlateDeleteView, PlateListView, PlateUpdateView
+from buildings.views import (
+    BuildigListView,
+    BuildingDeleteView,
+    BuildingDetailView,
+    LadderCreateView,
+    LadderDeleteView,
+    LadderListView,
+    LadderUpdateView,
+    PillarCreateView,
+    PillarDeleteView,
+    PillarListView,
+    PillarUpdateView,
+    PlateCreateView,
+    PlateDeleteView,
+    PlateListView,
+    PlateUpdateView,
+    calculate,
+)
 
 
 app_name = BuildingsConfig.name
@@ -18,4 +35,10 @@ urlpatterns = [
     path("plate/<int:pk>/update", PlateUpdateView.as_view(), name="plate_update"),
     path("plate/create", PlateCreateView.as_view(), name="plate_create"),
     path("plate/<int:pk>/delete", PlateDeleteView.as_view(), name="plate_delete"),
+    path("", calculate, name="calculations"),
+    path("building", BuildigListView.as_view(), name="building_list"),
+    path("building/<int:pk>", BuildingDetailView.as_view(), name="building_detail"),
+    path(
+        "building/<int:pk>/delete", BuildingDeleteView.as_view(), name="building_delete"
+    ),
 ]

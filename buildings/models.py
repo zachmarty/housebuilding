@@ -54,13 +54,18 @@ class Building(models.Model):
     plate = models.ForeignKey(Plate, on_delete=models.CASCADE, verbose_name="Плита")
     plates_count = models.IntegerField(verbose_name="Кол-во плит")
     ladder = models.ForeignKey(
-        Ladder, on_delete=models.CASCADE, verbose_name="Лестница"
+        Ladder, on_delete=models.CASCADE, verbose_name="Лестница", null=True, default=None
     )
     ladders_count = models.IntegerField(verbose_name="Кол-во лестниц")
+    has_elevator = models.BooleanField(verbose_name="Лифт", default=False)
+    elevator_length = models.IntegerField(verbose_name="Длина лифта", default=0)
+    elevator_width = models.IntegerField(verbose_name="Ширина лифта", default=0)
     length = models.IntegerField(verbose_name="Длина")
     width = models.IntegerField(verbose_name="Ширина")
     height = models.IntegerField(verbose_name="Высота")
-    floors = models.IntegerField(verbose_name="Этажей")
+    x_step = models.IntegerField(verbose_name="Шаг по горизонтали", default=0)
+    y_step = models.IntegerField(verbose_name="Шаг по горизонтали", default=0)
+    floors = models.IntegerField(verbose_name="Этажи")
 
     def __str__(self) -> str:
         return f"{self.name}"
