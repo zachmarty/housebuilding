@@ -1,0 +1,71 @@
+{% extends 'buildings/base.html' %}
+{%block content%}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-1">Список колонн</h1>
+</div>
+
+<div class="row">
+    <div class="col-10"></div>
+    <div class="col-2">
+        <a class="btn btn-outline-success" href="{% url 'buildings:pillar_create'%}">Добавить</a>
+    </div>
+</div>
+<br>
+<div class="card">
+    <div class="row">
+        <div class="col-3">
+            <h1 class="display-6">
+                Серийный номер
+            </h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">
+                Длина
+            </h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">
+                Ширина
+            </h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">
+                Высота
+            </h1>
+        </div>
+    </div>
+</div>
+<br>
+{%for pillar in pillar_list%}
+<div class="card">
+    <div class="row">
+        <div class="col-3">
+            <h1 class="display-6">{{pillar.serial_number}}</h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">{{pillar.length}}</h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">{{pillar.width}}</h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">{{pillar.height}}</h1>
+        </div>
+    </div>
+    <div class="card">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-2">
+                <a class="btn btn-outline-success" href="{% url 'buildings:pillar_update' pillar.id%}">Изменить</a>
+            </div>
+            <div class="col-2">
+                <a class="btn btn-outline-danger" href="{% url 'buildings:pillar_delete' pillar.id%}">Удалть</a>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+<br>
+{%endfor%}
+
+{%endblock%}

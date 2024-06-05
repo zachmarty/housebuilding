@@ -13,7 +13,7 @@ class Ladder(models.Model):
     class Meta:
         verbose_name = "Лестница"
         verbose_name_plural = "Лестницы"
-        ordering = "serial_number"
+        ordering = ("serial_number",)
 
 
 class Plate(models.Model):
@@ -28,7 +28,7 @@ class Plate(models.Model):
     class Meta:
         verbose_name = "Плита"
         verbose_name_plural = "Плиты"
-        ordering = "serial_number"
+        ordering = ("serial_number",)
 
 
 class Pillar(models.Model):
@@ -43,7 +43,7 @@ class Pillar(models.Model):
     class Meta:
         verbose_name = "Колонна"
         verbose_name_plural = "Колонны"
-        ordering = "serial_number"
+        ordering = ("serial_number",)
 
 
 class Building(models.Model):
@@ -68,4 +68,4 @@ class Building(models.Model):
     class Meta:
         verbose_name = "Здание"
         verbose_name_plural = "Здания"
-        ordering = "name"
+        ordering = ("name",)

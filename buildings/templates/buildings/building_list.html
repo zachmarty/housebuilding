@@ -1,0 +1,80 @@
+{% extends 'buildings/base.html' %}
+{%block content%}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-1">Сохраненные рассчеты</h1>
+</div>
+
+
+<div class="card">
+    <div class="row">
+        <div class="col-2">
+            <h1 class="display-6">
+                Наименование
+            </h1>
+        </div>
+        <div class="col-2">
+            <h1 class="display-6">
+                Длина
+            </h1>
+        </div>
+        <div class="col-2">
+            <h1 class="display-6">
+                Ширина
+            </h1>
+        </div>
+        <div class="col-2">
+            <h1 class="display-6">
+                Высота
+            </h1>
+        </div>
+        <div class="col-1">
+            <h1 class="display-6">
+                Количество колонн
+            </h1>
+        </div>
+        <div class="col-1">
+            <h1 class="display-6">
+                Количество плит
+            </h1>
+        </div>
+        <div class="col-1">
+            <h1 class="display-6">
+                Количество лестниц
+            </h1>
+        </div>
+    </div>
+</div>
+<br>
+{%for building in building_list%}
+<div class="card">
+    <div class="row">
+        <div class="col-3">
+            <h1 class="display-6">{{ladder.serial_number}}</h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">{{ladder.length}}</h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">{{ladder.width}}</h1>
+        </div>
+        <div class="col-3">
+            <h1 class="display-6">{{ladder.height}}</h1>
+        </div>
+    </div>
+    <div class="card">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-2">
+                <a class="btn btn-outline-success" href="{% url 'buildings:ladder_update' ladder.id%}">Изменить</a>
+            </div>
+            <div class="col-2">
+                <a class="btn btn-outline-danger" href="{% url 'buildings:ladder_delete' ladder.id%}">Удалть</a>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+<br>
+{%endfor%}
+
+{%endblock%}

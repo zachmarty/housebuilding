@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>House planning</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <nav class="ms-5">
+
+            <a class="p-2 btn btn-outline-primary" href="#">Провести рассчеты</a>
+            <a class="p-2 btn btn-outline-primary" href="#">Список строений</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'buildings:pillar_list'%}">Список колонн</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'buildings:plate_list'%}">Список плит</a>
+            <a class="p-2 btn btn-outline-primary" href="{%url 'buildings:ladder_list'%}">Список лестниц</a>
+
+
+        </nav>
+    </div>
+
+
+
+    <div class="container text-center">
+        <div>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

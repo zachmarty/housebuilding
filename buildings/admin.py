@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from buildings.models import Building, Pillar, Plate
+from buildings.models import Building, Ladder, Pillar, Plate
 
 @admin.register(Pillar)
 class PillarAdmin(admin.ModelAdmin):
@@ -8,6 +8,10 @@ class PillarAdmin(admin.ModelAdmin):
 
 @admin.register(Plate)
 class PlateAdmin(admin.ModelAdmin):
+    list_display = ("serial_number", "length", "width", "height")
+
+@admin.register(Ladder)
+class LadderAdmin(admin.ModelAdmin):
     list_display = ("serial_number", "length", "width", "height")
 
 @admin.register(Building)
